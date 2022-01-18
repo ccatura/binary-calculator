@@ -2,10 +2,14 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Press Start 2P', cursive;
-    text-transform: uppercase;
     background-color: black;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+@font-face {
+    font-family: calc-font;
+    src: url(fonts/Digital7Monoitalic-8xKz.ttf);
+  }
 
 .calculator-body {
     /* border: 4px solid green; */
@@ -21,14 +25,20 @@ body {
     margin: 1vh 0 0 2vw;
 }
 
-.readout {
-    /* border: 4px solid blue; */
+#readout {
+    border: 4px solid blue;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: calc-font;
     background-color: #aaa;
     color: #333;
-    padding: 1rem;
-    font-size: 7vw;
-    text-align: right;
+    font-size: 15vw;
+    height: calc(.5em + 8vw);
     margin: 1vh 2vw 1vh 2vw;
+    text-transform: uppercase;
+    padding: 0 .2em .2em .2em;
 }
 
 .button-container {
@@ -38,6 +48,7 @@ body {
     justify-content: space-around;
     height: 80vh;
     background-color: #333;
+    font-weight: bold;
 }
 
 .button {
@@ -51,9 +62,11 @@ body {
     margin: 1vh 1vw 1vh 1vw ;
     border-radius: 2vw;
     box-shadow: 1.2vw .8vh 0 black;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
     font-size: 3rem;
+}
+
+.button:nth-child(2) {
+    flex-basis: 61.5%;
 }
 
 .button:hover {
@@ -62,4 +75,9 @@ body {
 
 .button:active {
     transform: translate(0, 5px);
+}
+
+.calculate {
+    flex-basis: 44.5%;
+    justify-self: center;
 }
