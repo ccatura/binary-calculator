@@ -8,11 +8,17 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 function redirect(){
-  if (displayValue.length < 12) {
-    displayValue = parseInt(displayValue) + this.innerHTML;
-    // displayValue = parseInt(displayValue);
-    document.getElementById('readout').innerHTML = parseInt(displayValue);
-    console.log(displayValue);
-  }
+    if (!isNaN(this.innerHTML)) {
+      if (displayValue.length < 12) {
+        displayValue = parseInt(displayValue) + this.innerHTML;
+        // displayValue = parseInt(displayValue);
+        document.getElementById('readout').innerHTML = parseInt(displayValue);
+        console.log(displayValue);
+      }
+    } else if (this.innerHTML == "C") {
+      console.log("CLEAR");
+      displayValue = '0';
+      document.getElementById('readout').innerHTML = parseInt(displayValue);
+    }
 }
 
