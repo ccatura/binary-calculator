@@ -1,3 +1,9 @@
+:root {
+    --myShadow: 1.2vw .8vh 0 black;
+}
+
+
+
 body {
     margin: 0;
     padding: 0;
@@ -26,7 +32,7 @@ body {
 }
 
 #readout {
-    border: 4px solid blue;
+    /* border: 4px solid blue; */
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
@@ -61,7 +67,7 @@ body {
     color: black;
     margin: 1vh 1vw 1vh 1vw ;
     border-radius: 2vw;
-    box-shadow: 1.2vw .8vh 0 black;
+    box-shadow: var(--myShadow);
     font-size: 3rem;
 }
 
