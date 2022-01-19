@@ -70,8 +70,9 @@ function binToDec (binNumber) {
 
   for (var i = 0; i < binNumber.length; i++) {
     if (binNumber.charAt(i) > 1 || binNumber.charAt(i) < 0) { // Checks if digits are binary
-      binNumber = "err";
+      binNumber = "Non-Binary";
       document.getElementById('readout').innerHTML = binNumber;
+      return;
     }
   }
 
