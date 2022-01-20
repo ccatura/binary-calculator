@@ -1,34 +1,3 @@
-/*
-// Displays initial '0' on display
-let displayValue = '0';
-let buttonPressed = parseInt(displayValue);
-document.getElementById('readout').innerHTML = buttonPressed;
-
-// Gets button pressed
-btns = document.getElementsByClassName('button');
-for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click',redirect,false);
-}
-
-
-function redirect(){
-    if (!isNaN(this.innerHTML)) {
-      if (displayValue.length < 12) {
-        displayValue = buttonPressed + this.innerHTML;
-        // displayValue = parseInt(displayValue);
-        document.getElementById('readout').innerHTML = buttonPressed;
-        console.log(displayValue);
-      }
-    } else if (this.innerHTML == "C") {
-      console.log("CLEAR");
-      displayValue = '0';
-      document.getElementById('readout').innerHTML = buttonPressed;
-    }
-}
-*/
-
-
-
 // Displays initial '0' on display
 let toDisplay = '0';
 updateDisplay();
@@ -39,24 +8,25 @@ for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', processButton, false);
 }
 
-
 function processButton(){
   let buttonPressed = this.innerHTML;
+  console.log('Button: ', buttonPressed);
+
     if (!isNaN(buttonPressed)) {
       if (toDisplay.length < 12) {
         toDisplay = parseInt(toDisplay) + buttonPressed;
         updateDisplay();
-        console.log('Display Value: ', toDisplay);
+        // console.log('Display Value: ', toDisplay);
       }
     } else if (buttonPressed == "C") {
-      console.log("CLEAR");
+      // console.log("Button: [CLEAR]");
       toDisplay = '0';
       updateDisplay();
     } else if (buttonPressed == "To Bin") {
-      console.log("TO BINARY");
+      // console.log("Button: [TO BINARY]");
       binToDec(toDisplay);
     } else if (buttonPressed == "To Dec") {
-      console.log("TO DECIMAL");
+      // console.log("Button: [TO DECIMAL]");
     }
 }
 
@@ -68,18 +38,21 @@ function binToDec (binNumber) {
   let result = 0;
   let binVal = 1;
 
+  // Checks if digits are not binary
   for (var i = 0; i < binNumber.length; i++) {
-    if (binNumber.charAt(i) > 1 || binNumber.charAt(i) < 0) { // Checks if digits are binary
+    if (binNumber.charAt(i) > 1 || binNumber.charAt(i) < 0) {
       binNumber = "Non-Binary";
       document.getElementById('readout').innerHTML = binNumber;
+      console.log('Error: ', binNumber);
       return;
     }
   }
 
+  // Calculate binary to decimal value
   for (var i = binNumber.length - 1; i > -1; i--) { // Search through variable starting from right end
     if (binNumber.charAt(i) == 1) {
       result += parseInt(binNumber.charAt(i) * binVal);
-      console.log(result);
+      // console.log(result);
     }
 
     if (binVal == 1) {
@@ -88,7 +61,7 @@ function binToDec (binNumber) {
       binVal *= 2;
     }
   }
-
+  console.log('Result: ', result);
   document.getElementById('readout').innerHTML = result;
 
 
