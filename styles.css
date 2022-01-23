@@ -43,7 +43,7 @@ body {
     font-family: calc-font;
     background-color: #aaa;
     color: #333;
-    font-size: 5.5rem;
+    font-size: 3.2rem;
     height: 15%;
     margin: 24px;
     text-transform: uppercase;
@@ -117,6 +117,6 @@ body {
     }
     #readout {
         /* border: 4px solid blue; */
-        font-size: 3.3rem;
+        /* font-size: 2rem; */
     }
 }
