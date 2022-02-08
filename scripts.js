@@ -24,9 +24,10 @@ function processButton(){
       updateDisplay();
     } else if (buttonPressed == "To Bin") {
       // console.log("Button: [TO BINARY]");
-      binToDec(toDisplay);
+      decToBin(toDisplay);
     } else if (buttonPressed == "To Dec") {
       // console.log("Button: [TO DECIMAL]");
+      binToDec(toDisplay);
     }
 }
 
@@ -67,3 +68,26 @@ function binToDec (binNumber) {
 
 }
 
+  function decToBin(decNumber) {
+    let bin_num = "";
+
+    function deci_to_bin(decNumber) {
+
+        // Base Case
+        if (decNumber <= 1) {
+            bin_num += String.fromCharCode(decNumber + '0'.charCodeAt());
+        } else {
+            // Recursion call
+            deci_to_bin(parseInt(decNumber / 2, 10));
+ 
+            // If decNumber is divisible by 2
+            if(decNumber%2 != 0)
+              bin_num += '1';
+             else
+              bin_num += '0';
+        }
+        
+  }
+  deci_to_bin(decNumber);
+  document.getElementById('readout').innerHTML = bin_num;
+}
