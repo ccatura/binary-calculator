@@ -48,7 +48,7 @@ body {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    align-itemgit pulls: center;
+    align-items: center;
     font-family: calc-font;
     background-color: #aaa;
     color: #333;
